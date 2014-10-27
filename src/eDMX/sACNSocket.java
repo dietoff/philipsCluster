@@ -96,7 +96,7 @@ public class sACNSocket {
 
   private InetAddress getFirstIPv4Address(NetworkInterface iface) {
     List<InterfaceAddress> addresses = iface.getInterfaceAddresses();
-    return addresses.get(1).getAddress();
+    return addresses.get(0).getAddress();
     /* InetAddress addr = InetAddress.getLocalHost(); */
     /* for (Enumeration<InetAddress> enumIpAddr = */
     /*     iface.getInetAddresses(); enumIpAddr.hasMoreElements(); ) { */
