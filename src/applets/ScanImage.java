@@ -27,8 +27,8 @@ public class ScanImage extends PApplet {
 		
 		PImage pim = image.get((int)x,(int)y,50,18);
 		
-		x = (x + 0.1f)%image.width;
-		y = (y + 0.01f)%image.height;
+		x = (x + 0.3f)%image.width;
+		y = (y + 0.03f)%image.height;
 		if (frameCount%1000==0) println(x+","+y);
 		p.toFacade(pim);
 	}
