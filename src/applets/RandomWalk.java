@@ -14,8 +14,9 @@ public class RandomWalk extends PApplet {
 
 	public void setup() 
 	{
-	  size(w, h);
+	  size(w*10, h*10);
 	  background(0);
+	  noSmooth();
 	}
 
 	public void draw() {
@@ -33,7 +34,11 @@ public class RandomWalk extends PApplet {
 	 x= newx; // update starting point
 	 y= newy;
 	 
-	 PImage img = get();
+	 PImage img = get(0,0,50,18);
+	 image(img,w,0,w*9,h*9);
+	 stroke(255);
+	 rect(w*1.0f,0.0f,w*4.5f,h*9f);
+	 rect(w*5.5f,0.0f,w*9f,h*9f);
 	 p.toFacade(img);
 	}
 }
