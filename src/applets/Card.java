@@ -2,42 +2,47 @@ package applets;
 
 import processing.core.PApplet;
 
+
 public class Card extends PApplet {
+	int w = 50;
+	int h = 18;
+	 
 
 	public void setup() {
-		size(50, 18);
+		size(w, h);
 	}
 
 	public void draw() {
-
-		background(0);
+		noStroke();
+		fill(0,0,0);
+		rect(0,0,w,h);
 		noFill();
 		stroke(255);
 		strokeWeight(1.5f);
 		pushMatrix();
-		translate(width*0.5f, height*0.5f);
+		translate(w*0.5f, h*0.5f);
 		rotate(frameCount / -100.0f);
 		star(0, 0, 3f, 7f, 5); 
 		popMatrix();
 		pushMatrix();
-		translate(width*0.25f, height*0.25f);
+		translate(w*0.18f, h*0.25f);
 		rotate(frameCount / -100.0f);
 		star(0, 0, 1f, 4f, 5); 
 		popMatrix();
 		pushMatrix();
 		strokeWeight(1f);
-		translate(width*0.75f, height*0.75f);
+		translate(w*0.83f, h*0.75f);
 		rotate(frameCount / -100.0f);
 		star(0, 0, 1f, 4f, 5); 
 		popMatrix();
 		pushMatrix();
 		strokeWeight(0.5f);
-		translate(width*0.35f, height*0.75f);
+		translate(w*0.35f, h*0.75f);
 		rotate(frameCount / -100.0f);
 		star(0, 0, 1.5f, 4f, 5); 
 		popMatrix();
 		pushMatrix();
-		translate(width*0.65f, height*0.15f);
+		translate(w*0.69f, h*0.15f);
 		rotate(frameCount / -100.0f);
 		star(0, 0, 0.5f, 3.5f, 5); 
 		popMatrix();
