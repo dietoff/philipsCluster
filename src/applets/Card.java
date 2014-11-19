@@ -1,12 +1,14 @@
 package applets;
 
 import processing.core.PApplet;
+import processing.core.PGraphics;
+import processing.core.PImage;
 
 
 public class Card extends PApplet {
 	int w = 50;
 	int h = 18;
-	 
+	Facade p;
 
 	public void setup() {
 		size(w, h);
@@ -46,6 +48,10 @@ public class Card extends PApplet {
 		rotate(frameCount / -100.0f);
 		star(0, 0, 0.5f, 3.5f, 5); 
 		popMatrix();
+		
+		
+		PImage pim = get();
+		p.toFacade(pim);
 	}
 
 	void star(float x, float y, float radius1, float radius2, int npoints) {
