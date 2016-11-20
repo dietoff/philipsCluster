@@ -41,6 +41,8 @@ public class RandomWalk extends PApplet {
 	 rect(w*5.5f,0.0f,w*9f,h*9f);
 	 p.toFacade(img);
 	}
+
+static public void main(String[] args) {
+	  PApplet.main(RandomWalk.class.getName());
+	}
 }
-
-

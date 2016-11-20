@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import applets.Images;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.core.PGraphics;
@@ -83,9 +84,9 @@ public class Votes extends PApplet {
 	public void draw() {
 		frame++;
 		if (frame==Integer.MAX_VALUE)  frame = 0; // prevent overflow exception, just to be safe
-		
+
 		if (runNext) loadVotes = new LoadVotes(this,"loader");
-		
+
 		//automatic();
 
 		// first create list of all nodes
@@ -419,7 +420,7 @@ public class Votes extends PApplet {
 			initMessage = true;
 			break;
 		default:
-			
+
 			ArrayList<Node> nodes = new ArrayList<Node>();
 			for (Cluster c:clusters) {
 				nodes.addAll(c.nodes);
@@ -437,15 +438,15 @@ public class Votes extends PApplet {
 
 	public void doneLoading(String s) {
 		if (s!=null){
-		String separators = ";:";
-		String[] words = splitTokens(trim(s), separators);
-		printArray(words);
-		Integer integer = Integer.getInteger(words[5]);
-		Integer integer2 = Integer.getInteger(words[9]);
-		Integer integer3 = Integer.getInteger(words[13]);
-		Integer integer4 = Integer.getInteger(words[17]);
-		Integer integer5 = Integer.getInteger(words[21]);
-		int vote[] = {integer,integer2,integer3,integer4,integer5};
+			String separators = ";:";
+			String[] words = splitTokens(trim(s), separators);
+			printArray(words);
+			Integer integer = Integer.getInteger(words[5]);
+			Integer integer2 = Integer.getInteger(words[9]);
+			Integer integer3 = Integer.getInteger(words[13]);
+			Integer integer4 = Integer.getInteger(words[17]);
+			Integer integer5 = Integer.getInteger(words[21]);
+			int vote[] = {integer,integer2,integer3,integer4,integer5};
 		}
 	}
 
@@ -462,7 +463,7 @@ public class Votes extends PApplet {
 		public void run() {
 			URL url;
 			try {
-				url = new URL("http://nuweb9.neu.edu/visualization/dotvote/tally.txt");
+				url = new URL("http://www.azmar.org/php/state.txt");
 				InputStream i = url.openStream();
 				Scanner scan = new Scanner(i);
 				final String totalText = scan.nextLine();
@@ -476,5 +477,8 @@ public class Votes extends PApplet {
 				e.printStackTrace();
 			}
 		}
+	}
+	static public void main(String[] args) {
+		PApplet.main(Votes.class.getName());
 	}
 }

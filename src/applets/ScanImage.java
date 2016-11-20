@@ -10,13 +10,13 @@ public class ScanImage extends PApplet {
 	float x,y = 0;
 	int f = 2;
 	Facade p;
-	
+
 	public void setup() {
 		p = new Facade(this);
 		image = loadImage("../data/glacier.jpg");
 		size (image.width,image.height);
-//		size(50,18);
-//		path = generatePath();
+		//		size(50,18);
+		//		path = generatePath();
 	}
 
 	public void draw() {
@@ -24,7 +24,7 @@ public class ScanImage extends PApplet {
 		noFill();
 		stroke(0);
 		rect(x,y,50,18);
-		
+
 		PImage pim = image.get((int)x,(int)y,50,18);
 
 		x = (x + 0.3f)%image.width;
@@ -32,11 +32,14 @@ public class ScanImage extends PApplet {
 		if (frameCount%1000==0) println(x+","+y);
 		p.toFacade(pim);
 	}
-	
+
 	PShape generatePath() {
-		
-		
+
+
 		return null;
+	}
+	static public void main(String[] args) {
+		PApplet.main(ScanImage.class.getName());
 	}
 
 }

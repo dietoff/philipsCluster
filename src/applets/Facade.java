@@ -15,7 +15,6 @@ class Facade {
 	sACNUniverse[] universeArray = new sACNUniverse[numChainsTotal];
 	byte[][] chainDataArray = new byte[numChainsTotal][chainLength * 3];
 
-
 	Facade(PApplet p_) {
 		this.p = p_;
 		source = new sACNSource(p, "NEU Source");

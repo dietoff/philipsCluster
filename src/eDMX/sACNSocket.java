@@ -1,3 +1,5 @@
+// change 
+
 package eDMX;
 
 import java.net.*;
@@ -5,13 +7,14 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.UUID;
 import java.nio.charset.Charset;
-
 import java.util.Enumeration;
 import java.util.List;
 
 public class sACNSocket {
 
-  private final static sACNSocket INSTANCE = new sACNSocket();
+private static final String networkinterface = "en0"; // change this -- should point to the network interface
+  
+private final static sACNSocket INSTANCE = new sACNSocket();
   private final static int sdt_acn_port = 5568;
   private static String interfaceName = null;
   private DatagramSocket datagramSocket;
@@ -63,7 +66,8 @@ public class sACNSocket {
    * Private. Use the getInstance() method to retrieve the singleton socket.
    */
   private sACNSocket() {
-    this.interfaceName = "bridge100";
+//	listInterfaces();
+    this.interfaceName = networkinterface; 
     System.out.println("Constructor interfaceName: " + this.interfaceName);
     NetworkInterface netInterface = null;
     try {
@@ -81,7 +85,11 @@ public class sACNSocket {
     System.out.println("network interface: " + netInterface);
     if (null != netInterface)
     {
-      netAddress = getFirstIPv4Address(netInterface);
+      try {
+		netAddress = getFirstIPv4Address(netInterface);
+	} catch (UnknownHostException e) {
+		e.printStackTrace();
+	}
       System.out.println("Binding to address: " + netAddress);
     }
     
@@ -94,16 +102,16 @@ public class sACNSocket {
     }
   }
 
-  private InetAddress getFirstIPv4Address(NetworkInterface iface) {
+  private InetAddress getFirstIPv4Address(NetworkInterface iface) throws UnknownHostException {
     List<InterfaceAddress> addresses = iface.getInterfaceAddresses();
-    return addresses.get(0).getAddress();
-    /* InetAddress addr = InetAddress.getLocalHost(); */
-    /* for (Enumeration<InetAddress> enumIpAddr = */
-    /*     iface.getInetAddresses(); enumIpAddr.hasMoreElements(); ) { */
+//    return addresses.get(0).getAddress();
+     InetAddress addr = InetAddress.getLocalHost(); 
+     for (Enumeration<InetAddress> enumIpAddr = 
+      iface.getInetAddresses(); enumIpAddr.hasMoreElements(); ) { 
 
-    /*   addr = enumIpAddr.nextElement(); */
-    /* } */
-    /* return addr; */
+    addr = enumIpAddr.nextElement(); 
+     } 
+     return addr; 
  }
 
   /**
