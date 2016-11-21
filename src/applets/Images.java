@@ -25,7 +25,7 @@ public class Images extends PApplet {
 		frameRate(30);
 		pics = loadStrings("../data/dir.txt");
 
-		chainPhoto = loadImage("../data/black.png");
+		chainPhoto = loadImage("../data/33.png");
 		chainPhoto.loadPixels();
 
 		source = new sACNSource(this, "NEU Source");

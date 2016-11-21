@@ -1,10 +1,11 @@
+
 package applets;
 
 import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PShape;
 
-public class ScanImage extends PApplet {
+public class SimpleImage extends PApplet {
 	PShape path;
 	PImage image;
 	float x,y = 0;
@@ -13,7 +14,7 @@ public class ScanImage extends PApplet {
 
 	public void setup() {
 		p = new Facade(this);
-		image = loadImage("../data/glacier.jpg");
+		image = loadImage("../data/rgb.png");
 		size (image.width,image.height);
 		//		size(50,18);
 		//		path = generatePath();
@@ -27,9 +28,9 @@ public class ScanImage extends PApplet {
 
 		PImage pim = image.get((int)x,(int)y,50,18);
 
-		x = (x + 0.3f)%image.width;
-		y = (y + 0.03f)%image.height;
-		if (frameCount%1000==0) println(x+","+y);
+//		x = (x + 0.3f)%image.width;
+//		y = (y + 0.03f)%image.height;
+//		if (frameCount%1000==0) println(x+","+y);
 		p.toFacade(pim);
 	}
 

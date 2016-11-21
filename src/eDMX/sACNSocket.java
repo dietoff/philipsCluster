@@ -12,7 +12,7 @@ import java.util.List;
 
 public class sACNSocket {
 
-private static final String networkinterface = "en0"; // change this -- should point to the network interface
+private static final String networkinterface = "en3"; // change this -- should point to the network interface
   
 private final static sACNSocket INSTANCE = new sACNSocket();
   private final static int sdt_acn_port = 5568;
@@ -66,7 +66,7 @@ private final static sACNSocket INSTANCE = new sACNSocket();
    * Private. Use the getInstance() method to retrieve the singleton socket.
    */
   private sACNSocket() {
-//	listInterfaces();
+	listInterfaces();
     this.interfaceName = networkinterface; 
     System.out.println("Constructor interfaceName: " + this.interfaceName);
     NetworkInterface netInterface = null;

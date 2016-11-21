@@ -22,23 +22,23 @@ class Facade {
 		// NEU sPDS480-1
 		// IP Address: 10.1.3.230
 		int minUniverseUnit1 = 0;
-		int numChainsUnit1 = 8;
+		int numChainsUnit1 = 6;
 		for (int i = minUniverseUnit1; i < minUniverseUnit1+numChainsUnit1; i++){
 			universeArray[i] = new sACNUniverse(source, (short)(i+1));
 		}
 		// "Unit 2"
 		// NEU sPDS480-2
 		// IP Address: 10.1.3.231
-		int minUniverseUnit2 = 8;
-		int numChainsUnit2 = 8;
+		int minUniverseUnit2 = 6;
+		int numChainsUnit2 = 6;
 		for (int i = minUniverseUnit2; i < minUniverseUnit2+numChainsUnit2; i++){
 			universeArray[i] = new sACNUniverse(source, (short)(i+1));
 		}
 		// "Unit 3"
 		// NEU sPDS480-3
 		// IP Address: 10.1.3.232
-		int minUniverseUnit3 = 16;
-		int numChainsUnit3 = 2;
+		int minUniverseUnit3 = 12;
+		int numChainsUnit3 = 6;
 		for (int i = minUniverseUnit3; i < minUniverseUnit3+numChainsUnit3; i++){
 			universeArray[i] = new sACNUniverse(source, (short)(i+1));
 		}
