@@ -8,37 +8,19 @@ import processing.core.PShape;
 public class SimpleImage extends PApplet {
 	PShape path;
 	PImage image;
-	float x,y = 0;
-	int f = 2;
 	Facade p;
 
 	public void setup() {
 		p = new Facade(this);
 		image = loadImage("../data/rgb.png");
-		size (image.width,image.height);
-		//		size(50,18);
-		//		path = generatePath();
+				size(50,18);
 	}
 
 	public void draw() {
-		image(image,0,0);
-		noFill();
-		stroke(0);
-		rect(x,y,50,18);
-
-		PImage pim = image.get((int)x,(int)y,50,18);
-
-//		x = (x + 0.3f)%image.width;
-//		y = (y + 0.03f)%image.height;
-//		if (frameCount%1000==0) println(x+","+y);
-		p.toFacade(pim);
+		image(image,0,0); // draw on screen, just for monitoring purposes
+		p.toFacade(image); // send to facade
 	}
 
-	PShape generatePath() {
-
-
-		return null;
-	}
 	static public void main(String[] args) {
 		PApplet.main(SimpleImage.class.getName());
 	}
