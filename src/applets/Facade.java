@@ -67,8 +67,6 @@ class Facade {
 		}
 	}
 
-
-
 	void toFacade(PGraphics p) {
 		for (int i = 0; i < numChainsTotal; i++) {
 			for (int j = 0; j < chainLength; j++) {
